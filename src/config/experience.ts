@@ -1,8 +1,10 @@
 import {PortfolioItemProps} from "@/components/hero/portfolio";
 
-export const experienceItems: PortfolioItemProps[] = [
+export const experienceItems: (PortfolioItemProps & {businessSlug: string, positionSlug: string})[] = [
     {
         title: "Security Operations Analyst",
+        businessSlug: "gatech",
+        positionSlug: "security-operations-analyst",
         affiliation: "Georgia Institute of Technology",
         buttonText: "About",
         link: {pathname: '/experience/gatech/security-operations-analyst'},
@@ -16,9 +18,11 @@ export const experienceItems: PortfolioItemProps[] = [
     },
     {
         title: "Research Intern",
+        businessSlug: "gtri",
+        positionSlug: "research-intern",
         affiliation: "Georgia Tech Research Institute",
         buttonText: "About",
-        link: {pathname: '/experience/gtri/security-operations-analyst'},
+        link: {pathname: '/experience/gtri/research-intern'},
         categories: [
             'Information Security',
             'Software Engineering'
@@ -26,6 +30,8 @@ export const experienceItems: PortfolioItemProps[] = [
     },
     {
         title: "Systems Administrator",
+        businessSlug: "bbyb",
+        positionSlug: "systems-administrator",
         affiliation: "BuiltByBit",
         buttonText: "About",
         link: {pathname: '/experience/bbyb/systems-administrator'},
@@ -37,6 +43,8 @@ export const experienceItems: PortfolioItemProps[] = [
     },
     {
         title: "Developer",
+        businessSlug: "bbyb",
+        positionSlug: "developer",
         affiliation: "BuiltByBit",
         buttonText: "About",
         link: {pathname: '/experience/bbyb/developer'},
@@ -47,6 +55,8 @@ export const experienceItems: PortfolioItemProps[] = [
     },
     {
         title: "Chief Operating Officer",
+        businessSlug: "interbix",
+        positionSlug: "chief-operating-officer",
         affiliation: "Interbix Holdings",
         buttonText: "About",
         link: {pathname: '/experience/interbix/chief-operating-officer'},

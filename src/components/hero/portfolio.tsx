@@ -54,7 +54,7 @@ type PortfolioCategoryLinkProps = {
 
 function PortfolioCategoryLink(props: PortfolioCategoryLinkProps) {
     return (
-        <div {...props as Clickable}
+        <div onClick={props?.onClick}
            className={classNames("block text-gray-500 dark:text-gray-300 hover:underline",
                props.active ? 'underline' : '')}>{props.title}{props.count !== undefined ?
             ` (${props.count})` : null}</div>
