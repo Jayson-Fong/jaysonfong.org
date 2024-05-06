@@ -38,14 +38,16 @@ function PortfolioItem(props: PortfolioItemProps) {
 
 type PortfolioCategoryLinkProps = {
     title: string,
-    active?: boolean
+    active?: boolean,
+    count?: number
 } & Clickable;
 
 function PortfolioCategoryLink(props: PortfolioCategoryLinkProps) {
     return (
         <a {...props}
            className={classNames("block text-gray-500 dark:text-gray-300 hover:underline",
-               props.active ? 'underline' : '')}>{props.title}</a>
+               props.active ? 'underline' : '')}>{props.title}{props.count !== undefined ?
+            ` (${props.count})` : null}</a>
     );
 }
 
@@ -64,9 +66,10 @@ export function Portfolio() {
                         <div className="mt-4 space-y-4 lg:mt-8">
                             <Iterate iterable={['All', ...collect(portfolioItems, 'categories')].map(v => {
                                 return {
-                                    title: `${v} (${v == 'All' ? portfolioItems.length : portfolioItems
-                                        .filter(p => p?.categories && p.categories.includes(v)).length})`,
-                                    active: v == displayedCategory
+                                    title: v,
+                                    active: v == displayedCategory,
+                                    count: v == 'All' ? portfolioItems.length : portfolioItems
+                                        .filter(p => p?.categories && p.categories.includes(v)).length
                                 }
                             })} constructor={PortfolioCategoryLink} onClick={setDisplayedCategory}
                                      onClickValue={p => p.title}/>
