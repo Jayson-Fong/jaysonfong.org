@@ -23,7 +23,7 @@ function PortfolioItem(props: PortfolioItemProps) {
     return (
         <div>
             <Link href={props.link}>
-                <img className="object-cover w-full rounded-lg h-96 hover:opacity-50"
+                <img className="object-cover w-full rounded-lg h-96 opacity-50 hover:opacity-100"
                      src={props.backgroundImage.src}
                      alt={props?.backgroundImageAlt ?? ''}/>
             </Link>
