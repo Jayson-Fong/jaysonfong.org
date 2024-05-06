@@ -28,7 +28,7 @@ function PortfolioItem(props: PortfolioItemProps) {
             <h2 className="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">{props.title}</h2>
             <h2 className="mt-4 text-sm font-semibold text-gray-700 capitalize dark:text-gray-200">{props.affiliation}</h2>
             <Link href={props.link}>
-                <p className="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400 ">{props.buttonText}</p>
+                <p className="mt-2 text-lg tracking-wider text-blue-500 uppercase dark:text-blue-400">{props.buttonText}</p>
             </Link>
         </div>
     );
@@ -42,8 +42,8 @@ type PortfolioCategoryLinkProps = {
 function PortfolioCategoryLink(props: PortfolioCategoryLinkProps) {
     return (
         <a {...props}
-              className={classNames("block text-gray-500 dark:text-gray-300 hover:underline",
-                  props.active ? 'underline' : '')}>{props.title}</a>
+           className={classNames("block text-gray-500 dark:text-gray-300 hover:underline",
+               props.active ? 'underline' : '')}>{props.title}</a>
     );
 }
 
@@ -68,7 +68,7 @@ export function Portfolio() {
                     </div>
 
                     <div className="flex-1 mt-8 lg:mx-12 lg:mt-0">
-                        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 ">
+                        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
                             <Iterate iterable={portfolioItems} constructor={PortfolioItem}
                                      filter={p => displayedCategory == 'All' || p.categories?.includes(displayedCategory)}/>
                         </div>

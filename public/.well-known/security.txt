@@ -1,0 +1,4 @@
+Contact: mailto:contact at jaysonfong
+Expires: 2025-05-06T04:00:00.000Z
+Preferred-Languages: en
+Canonical: https://jaysonfong.org/.well-known/security.txt

@@ -41,10 +41,10 @@ export const portfolioItems: PortfolioItemProps[] = [
         ]
     },
     {
-        title: "jaysonfong.org",
+        title: "Personal Website",
         affiliation: "Personal Project",
         buttonText: "Explore",
-        link: {pathname: '/projects/jaysonfong-org'},
+        link: {pathname: '/projects/personal-website'},
         backgroundImage: Image,
         categories: [
             'Software Engineering',
