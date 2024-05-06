@@ -63,7 +63,11 @@ export function Portfolio() {
 
                         <div className="mt-4 space-y-4 lg:mt-8">
                             <Iterate iterable={['All', ...collect(portfolioItems, 'categories')].map(v => {
-                                return {title: v, active: v == displayedCategory}
+                                return {
+                                    title: `${v} (${v == 'All' ? portfolioItems.length : portfolioItems
+                                        .filter(p => p?.categories && p.categories.includes(v)).length})`,
+                                    active: v == displayedCategory
+                                }
                             })} constructor={PortfolioCategoryLink} onClick={setDisplayedCategory}
                                      onClickValue={p => p.title}/>
                         </div>
