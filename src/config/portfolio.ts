@@ -9,6 +9,7 @@ import CredentialDumpReviewerCover from "../../public/portfolio/CredentialDumpRe
 export const portfolioItems: PortfolioItemProps[] = [
     {
         title: "SOCTools",
+        shortDescription: "Tools for a SOC",
         affiliation: "Georgia Institute of Technology",
         buttonText: "View Details",
         link: {pathname: "/projects/soctools"},
@@ -22,6 +23,7 @@ export const portfolioItems: PortfolioItemProps[] = [
     },
     {
         title: "Detection with Elasticsearch",
+        shortDescription: "Novel Detection Techniques",
         affiliation: "Georgia Institute of Technology",
         buttonText: "View Details",
         link: {pathname: '/projects/detection-with-elasticsearch'},
@@ -34,6 +36,7 @@ export const portfolioItems: PortfolioItemProps[] = [
     },
     {
         title: "Shared Mower System",
+        shortDescription: "Serverless Mower Management",
         affiliation: "Unyson System",
         buttonText: "Explore",
         link: {pathname: '/projects/community-mower-system'},
@@ -47,6 +50,7 @@ export const portfolioItems: PortfolioItemProps[] = [
     },
     {
         title: "Personal Website",
+        shortDescription: "This Website.",
         affiliation: "Personal Project",
         buttonText: "Explore",
         link: {pathname: '/projects/personal-website'},
@@ -60,6 +64,7 @@ export const portfolioItems: PortfolioItemProps[] = [
     },
     {
         title: "Credential Dump Reviewer",
+        shortDescription: "Automated Credential Testing",
         affiliation: "Georgia Institute of Technology",
         buttonText: "Learn More",
         link: {pathname: '/projects/credential-dump-reviewer'},
@@ -72,6 +77,7 @@ export const portfolioItems: PortfolioItemProps[] = [
     },
     {
         title: "CyberForce Competition",
+        shortDescription: "Rapid-Fire Blue Team Exercise",
         affiliation: "Georgia Institute of Technology",
         buttonText: "About",
         link: {pathname: '/projects/cyberforce-competition'},

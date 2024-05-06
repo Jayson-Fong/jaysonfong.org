@@ -8,9 +8,11 @@ import {portfolioItems} from "@/config/portfolio";
 import React, {useState} from "react";
 import {collect} from "@/util/collect";
 import {classNames} from "@/util/css";
+import {If} from "@/components/logic/condition";
 
 export type PortfolioItemProps = {
     title: string,
+    shortDescription?: string,
     affiliation: string,
     buttonText: string,
     link: Url,
@@ -23,9 +25,16 @@ function PortfolioItem(props: PortfolioItemProps) {
     return (
         <div>
             <Link href={props.link}>
-                <img className="object-cover w-full rounded-lg h-96 opacity-50 hover:opacity-100"
-                     src={props.backgroundImage.src}
-                     alt={props?.backgroundImageAlt ?? ''}/>
+                <div className="group relative">
+                    <img className="object-cover w-full rounded-lg h-96 opacity-50 hover:opacity-100"
+                         src={props.backgroundImage.src}
+                         alt={props?.backgroundImageAlt ?? ''}/>
+                    <If currentState={!!props.shortDescription}>
+                        <div className="hidden group-hover:block absolute bottom-5 left-5">
+                            <p className="text-gray-800 dark:text-white bg-gray-200 dark:bg-gray-600 p-0.5 rounded group-hover:hover:bg-transparent">{props.shortDescription}</p>
+                        </div>
+                    </If>
+                </div>
             </Link>
             <h2 className="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">{props.title}</h2>
             <h2 className="mt-4 text-sm font-semibold text-gray-700 capitalize dark:text-gray-200">{props.affiliation}</h2>
@@ -51,24 +60,30 @@ function PortfolioCategoryLink(props: PortfolioCategoryLinkProps) {
     );
 }
 
-export function Portfolio() {
+type PortfolioProps = {
+    title: string,
+    categoriesText: string,
+    portfolioItems: PortfolioItemProps[]
+}
+
+export function Portfolio(props: PortfolioProps) {
     const [displayedCategory, setDisplayedCategory] = useState('All');
 
     return (
         <section className="bg-white dark:bg-gray-900">
             <div className="container px-6 py-12 mx-auto">
-                <h1 className="text-2xl font-semibold text-gray-800 lg:text-3xl dark:text-white">Portfolio</h1>
+                <h1 className="text-2xl font-semibold text-gray-800 lg:text-3xl dark:text-white">{props.title}</h1>
 
                 <div className="mt-8 xl:mt-16 lg:flex lg:-mx-12">
                     <div className="lg:mx-12">
-                        <h1 className="text-xl font-semibold text-gray-800 dark:text-white">Project Categories</h1>
+                        <h1 className="text-xl font-semibold text-gray-800 dark:text-white">{props.categoriesText}</h1>
 
                         <div className="mt-4 space-y-4 lg:mt-8">
-                            <Iterate iterable={['All', ...collect(portfolioItems, 'categories')].map(v => {
+                            <Iterate iterable={['All', ...collect(props.portfolioItems, 'categories')].map(v => {
                                 return {
                                     title: v,
                                     active: v == displayedCategory,
-                                    count: v == 'All' ? portfolioItems.length : portfolioItems
+                                    count: v == 'All' ? props.portfolioItems.length : portfolioItems
                                         .filter(p => p?.categories && p.categories.includes(v)).length
                                 }
                             })} constructor={PortfolioCategoryLink} onClick={setDisplayedCategory}
