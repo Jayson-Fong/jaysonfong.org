@@ -22,9 +22,11 @@ export type PortfolioItemProps = {
 function PortfolioItem(props: PortfolioItemProps) {
     return (
         <div>
-            <img className="object-cover w-full rounded-lg h-96 "
-                 src={props.backgroundImage.src}
-                 alt={props?.backgroundImageAlt ?? ''}/>
+            <Link href={props.link}>
+                <img className="object-cover w-full rounded-lg h-96 hover:opacity-50"
+                     src={props.backgroundImage.src}
+                     alt={props?.backgroundImageAlt ?? ''}/>
+            </Link>
             <h2 className="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">{props.title}</h2>
             <h2 className="mt-4 text-sm font-semibold text-gray-700 capitalize dark:text-gray-200">{props.affiliation}</h2>
             <Link href={props.link}>
