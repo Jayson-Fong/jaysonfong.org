@@ -54,10 +54,10 @@ type PortfolioCategoryLinkProps = {
 
 function PortfolioCategoryLink(props: PortfolioCategoryLinkProps) {
     return (
-        <a {...props}
+        <div {...props as Clickable}
            className={classNames("block text-gray-500 dark:text-gray-300 hover:underline",
                props.active ? 'underline' : '')}>{props.title}{props.count !== undefined ?
-            ` (${props.count})` : null}</a>
+            ` (${props.count})` : null}</div>
     );
 }
 

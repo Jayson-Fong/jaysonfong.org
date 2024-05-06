@@ -14,6 +14,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         buttonText: "View Details",
         link: {pathname: "/projects/soctools"},
         backgroundImage: SOCToolsCover,
+        backgroundImageAlt: "Security Operations Center Tools Website",
         categories: [
             'Information Security',
             'Web Development',
@@ -28,6 +29,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         buttonText: "View Details",
         link: {pathname: '/projects/detection-with-elasticsearch'},
         backgroundImage: ElasticsearchDetectionCover,
+        backgroundImageAlt: "Elastic Security and Watchers Logo",
         categories: [
             'Information Security',
             'Software Engineering',
@@ -41,6 +43,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         buttonText: "Explore",
         link: {pathname: '/projects/community-mower-system'},
         backgroundImage: SharedMowerCover,
+        backgroundImageAlt: "Jayson Fong Presenting",
         categories: [
             'Software Engineering',
             'Web Development',
@@ -55,6 +58,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         buttonText: "Explore",
         link: {pathname: '/projects/personal-website'},
         backgroundImage: Image,
+        backgroundImageAlt: "The Current Website",
         categories: [
             'Software Engineering',
             'Web Development',
@@ -69,6 +73,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         buttonText: "Learn More",
         link: {pathname: '/projects/credential-dump-reviewer'},
         backgroundImage: CredentialDumpReviewerCover,
+        backgroundImageAlt: "Graphical Interface with a Table of Usernames and Passwords",
         categories: [
             'Software Engineering',
             'Systems Administration',
@@ -82,6 +87,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         buttonText: "About",
         link: {pathname: '/projects/cyberforce-competition'},
         backgroundImage: CyberForceCover,
+        backgroundImageAlt: "Jayson Competing at the 2023 CyberForce Competiton",
         categories: [
             'Software Engineering',
             'Systems Administration',
