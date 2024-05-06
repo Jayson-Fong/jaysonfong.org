@@ -1,5 +1,8 @@
 import {PortfolioItemProps} from "@/components/hero/portfolio";
 import Image from "../../public/next.svg"
+import CyberForceCover from "../../public/portfolio/CyberForce.jpg"
+import SharedMowerCover from "../../public/portfolio/SharedMower.jpg"
+import SOCToolsCover from "../../public/portfolio/SOCTools.jpg"
 
 export const portfolioItems: PortfolioItemProps[] = [
     {
@@ -7,7 +10,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         affiliation: "Georgia Institute of Technology",
         buttonText: "View Details",
         link: {pathname: "/projects/soctools"},
-        backgroundImage: Image,
+        backgroundImage: SOCToolsCover,
         categories: [
             'Information Security',
             'Web Development',
@@ -28,11 +31,11 @@ export const portfolioItems: PortfolioItemProps[] = [
         ]
     },
     {
-        title: "Community Mower System",
+        title: "Shared Mower System",
         affiliation: "Unyson System",
         buttonText: "Explore",
         link: {pathname: '/projects/community-mower-system'},
-        backgroundImage: Image,
+        backgroundImage: SharedMowerCover,
         categories: [
             'Software Engineering',
             'Web Development',
@@ -54,7 +57,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         ]
     },
     {
-        title: "Credential Dump Reviwer",
+        title: "Credential Dump Reviewer",
         affiliation: "Georgia Institute of Technology",
         buttonText: "Learn More",
         link: {pathname: '/projects/credential-dump-reviewer'},
@@ -70,7 +73,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         affiliation: "Georgia Institute of Technology",
         buttonText: "About",
         link: {pathname: '/projects/cyberforce-competition'},
-        backgroundImage: Image,
+        backgroundImage: CyberForceCover,
         categories: [
             'Software Engineering',
             'Systems Administration',
