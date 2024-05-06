@@ -1,10 +1,9 @@
 'use client';
 
-import {StaticImageData} from "next/image";
+import Image, {StaticImageData} from "next/image";
 import {Clickable, Url} from "@/types";
 import Link from "next/link";
 import {Iterate} from "@/components/logic/iterate";
-import {portfolioItems} from "@/config/portfolio";
 import React, {useState} from "react";
 import {collect} from "@/util/collect";
 import {classNames} from "@/util/css";
@@ -16,7 +15,7 @@ export type PortfolioItemProps = {
     affiliation: string,
     buttonText: string,
     link: Url,
-    backgroundImage: StaticImageData,
+    backgroundImage?: StaticImageData,
     backgroundImageAlt?: string,
     categories?: string[]
 }
@@ -24,18 +23,20 @@ export type PortfolioItemProps = {
 function PortfolioItem(props: PortfolioItemProps) {
     return (
         <div>
-            <Link href={props.link}>
-                <div className="group relative">
-                    <img className="object-cover w-full rounded-lg h-96 opacity-50 hover:opacity-100"
-                         src={props.backgroundImage.src}
-                         alt={props?.backgroundImageAlt ?? ''}/>
-                    <If currentState={!!props.shortDescription}>
-                        <div className="hidden group-hover:block absolute bottom-5 left-5">
-                            <p className="text-gray-800 dark:text-white bg-gray-200 dark:bg-gray-600 p-0.5 rounded group-hover:hover:bg-transparent">{props.shortDescription}</p>
-                        </div>
-                    </If>
-                </div>
-            </Link>
+            <If currentState={!!props.backgroundImage}>
+                <Link href={props.link}>
+                    <div className="group relative">
+                        <Image className="object-cover w-full rounded-lg h-96 opacity-50 hover:opacity-100"
+                               src={props.backgroundImage as StaticImageData}
+                               alt={props?.backgroundImageAlt ?? ''}/>
+                        <If currentState={!!props.shortDescription}>
+                            <div className="hidden group-hover:block absolute bottom-5 left-5">
+                                <p className="text-gray-800 dark:text-white bg-gray-200 dark:bg-gray-600 p-0.5 rounded group-hover:hover:bg-transparent">{props.shortDescription}</p>
+                            </div>
+                        </If>
+                    </div>
+                </Link>
+            </If>
             <h2 className="mt-4 text-xl font-semibold text-gray-800 capitalize dark:text-white">{props.title}</h2>
             <h2 className="mt-4 text-sm font-semibold text-gray-700 capitalize dark:text-gray-200">{props.affiliation}</h2>
             <Link href={props.link}>
@@ -83,7 +84,7 @@ export function Portfolio(props: PortfolioProps) {
                                 return {
                                     title: v,
                                     active: v == displayedCategory,
-                                    count: v == 'All' ? props.portfolioItems.length : portfolioItems
+                                    count: v == 'All' ? props.portfolioItems.length : props.portfolioItems
                                         .filter(p => p?.categories && p.categories.includes(v)).length
                                 }
                             })} constructor={PortfolioCategoryLink} onClick={setDisplayedCategory}
@@ -93,7 +94,7 @@ export function Portfolio(props: PortfolioProps) {
 
                     <div className="flex-1 mt-8 lg:mx-12 lg:mt-0">
                         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-                            <Iterate iterable={portfolioItems} constructor={PortfolioItem}
+                            <Iterate iterable={props.portfolioItems} constructor={PortfolioItem}
                                      filter={p => displayedCategory == 'All' || p.categories?.includes(displayedCategory)}/>
                         </div>
                     </div>
