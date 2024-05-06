@@ -4,6 +4,7 @@ import {ReactNode} from "react";
 import Header from "@/components/frame/header";
 import {links} from "@/navigation";
 import {classNames} from "@/util/css";
+import Footer from "@/components/frame/footer";
 
 const roboto = Roboto({weight: '400', subsets: ["latin"]});
 
@@ -22,6 +23,10 @@ export default function RootLayout({
         <main>
             {children}
         </main>
+
+        <footer>
+            <Footer />
+        </footer>
         </body>
         </html>
     );
