@@ -3,6 +3,8 @@ import Image from "../../public/next.svg"
 import CyberForceCover from "../../public/portfolio/CyberForce.jpg"
 import SharedMowerCover from "../../public/portfolio/SharedMower.jpg"
 import SOCToolsCover from "../../public/portfolio/SOCTools.jpg"
+import ElasticsearchDetectionCover from "../../public/portfolio/ElasticsearchDetection.jpg"
+import CredentialDumpReviewerCover from "../../public/portfolio/CredentialDumpReviewer.jpg"
 
 export const portfolioItems: PortfolioItemProps[] = [
     {
@@ -23,7 +25,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         affiliation: "Georgia Institute of Technology",
         buttonText: "View Details",
         link: {pathname: '/projects/detection-with-elasticsearch'},
-        backgroundImage: Image,
+        backgroundImage: ElasticsearchDetectionCover,
         categories: [
             'Information Security',
             'Software Engineering',
@@ -61,7 +63,7 @@ export const portfolioItems: PortfolioItemProps[] = [
         affiliation: "Georgia Institute of Technology",
         buttonText: "Learn More",
         link: {pathname: '/projects/credential-dump-reviewer'},
-        backgroundImage: Image,
+        backgroundImage: CredentialDumpReviewerCover,
         categories: [
             'Software Engineering',
             'Systems Administration',
